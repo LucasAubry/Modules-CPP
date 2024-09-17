@@ -2,6 +2,7 @@
 # define PHONEBOOK_H
 
 #include "iostream"
+#include <sstream>
 #include "iomanip"
 #include "string"
 
@@ -34,8 +35,13 @@ class PhoneBook {
 	public:
 		void	add_contact(int n_contact);
 		void	search_contact(int n_contact);
+		void	find_contact();
 };
 
-void	print_search(std::string str);
+void		print_search(std::string str);
+void		find_contact(int n_contact);
+int			myatoi(std::string str);
+std::string	myitoa(int i);
+
 
 #endif

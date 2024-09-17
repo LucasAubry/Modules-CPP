@@ -26,9 +26,7 @@ void	PhoneBook::add_contact(int n_contact)
 		if (str.compare("") != 0)
 		{
 			if (i == 0)
-			{
 				this->contact_tab[n_contact].setFirstName(str);
-			}
 			else if (i == 1)
 				this->contact_tab[n_contact].setLastName(str);
 			else if (i == 2)
@@ -48,21 +46,22 @@ void	PhoneBook::search_contact(int n_contact)
 
 	int i = 0;
 	std::cout << n_contact << std::endl;
-	std::string number = std::to_string(i);
+	std::string number = myitoa(i);
 	std::cout << "|     Index|First name| Last name|  Nickname|" << std::endl;
 
 	if (n_contact != 0)
 	{
 		while (i < n_contact)
 		{
-			std::string number = std::to_string(i);
+			number = myitoa(i);
 			print_search(number);
 			print_search(this->contact_tab[i].getFirstName());
 			print_search(this->contact_tab[i].getLastName());
 			print_search(this->contact_tab[i].getNickName());
-			std::cout << std::endl;
+			std::cout << "|" << std::endl;
 			i++;
 		}
+		find_contact();
 	}
 }
 

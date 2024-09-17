@@ -1,7 +1,7 @@
 #-----------------------Flags_and_Name---------------------
 NAME	=	phonebook
-CC		=	c++
-CFLAGS	=	-Wall -Wextra -Werror -std=c++98
+CXX		=	c++
+CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
 #------------------------Colors-----------------------------
 
@@ -20,21 +20,19 @@ FILES	=	main.cpp	\
 
 OBJS =	${FILES:.cpp=.o}
 
-.c.o:
-				$(CC) $(CFFLAGS) -cpp $< -o $(<:.cpp=.o)
-
 all:	${NAME}
 
 $(NAME): ${OBJS}
-	@$(call generate_random_color, $(CC) $(CFLAGS) -o $(NAME))
-	@$(CC) $(CFLAGS) -o $(NAME) ${OBJS}
+	@$(call generate_random_color, $(CXX) -o $(NAME))
+	@$(CXX) -o $(NAME) ${OBJS}
 
 re: fclean all
 
 clean:
-	rm -rf $(NAME)
+	$(RM) $(OBJS)
 
 fclean: clean
+	$(RM) $(NAME)
 
 .PHONY: all clean fclean re
 
