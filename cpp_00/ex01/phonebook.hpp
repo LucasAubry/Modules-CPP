@@ -2,6 +2,7 @@
 # define PHONEBOOK_H
 
 #include "iostream"
+#include "iomanip"
 #include "string"
 
 class Contact {
@@ -29,9 +30,12 @@ class Contact {
 
 class PhoneBook {
 	private:
-		Contact* conatcts[8];	
+		Contact	contact_tab[8];	
 	public:
-		void	add_contact(n_contact);
-}
+		void	add_contact(int n_contact);
+		void	search_contact(int n_contact);
+};
+
+void	print_search(std::string str);
 
 #endif
