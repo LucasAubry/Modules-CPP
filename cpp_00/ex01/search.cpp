@@ -24,12 +24,12 @@ void	PhoneBook::find_contact(int n_contact)
 	std::getline(std::cin, str);
 	if (!std::cin.good())
 		return;
-	if (str[0] > n_contact)
+	int i = myatoi(str);
+	if (i < 0 || i > n_contact)
 	{
 		std::cout << "you must choose between 0 to 8 contacts" << std::endl;
 		return ;
 	}
-	int i = myatoi(str);
 	std::cout << "Phone Number   : " << this->contact_tab[i % 8].getPhoneNumber() << std::endl;
 	std::cout << "Darkes Secret  : " << this->contact_tab[i % 8].getDarkestSecret() << std::endl;
 }

@@ -7,6 +7,8 @@ int	myatoi(std::string str)
 
 	ss << str;
 	ss >> i;
+	if (ss.fail())
+		return -1;
 	return (i);
 }
 
@@ -17,6 +19,8 @@ std::string	myitoa(int i)
 
 	ss << i;
 	ss >> str;
+	if (ss.fail())
+		return "";
 	return (str);
 }
 
