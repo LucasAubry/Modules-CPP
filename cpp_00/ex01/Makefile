@@ -14,6 +14,7 @@ endef
 FILES	=	main.cpp	\
 			phonebook.cpp \
 			search.cpp \
+			tools.cpp \
 
 #------------------------Rules------------------------------
 
