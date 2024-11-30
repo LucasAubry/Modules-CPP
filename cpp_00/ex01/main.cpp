@@ -43,7 +43,7 @@ int	main(void)
 	while (1)
 	{
 		std::getline(std::cin, str);
-		if (!std::cin.good())
+		if (!std::cin.good())//pour ctrl d
 			break;
 		if (str.compare("ADD") == 0)
 		{
@@ -61,3 +61,4 @@ int	main(void)
 	}
 	return (0);
 }
+
