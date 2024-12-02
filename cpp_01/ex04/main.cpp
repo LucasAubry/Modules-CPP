@@ -29,9 +29,18 @@ void replace(const std::string& file_name, const std::string& str1, const std::s
 			replace_file << str2;
 			find += str1.size();
 		}
+		find = line.rfind(str1);
 		if (find == std::string::npos)
-		{
 			replace_file << line.substr() << '\n';
+		else
+		{
+			int i = find + str1.size();
+			while (line[i])
+			{
+				replace_file << line[i];
+				i++;
+			}
+			replace_file << '\n';
 		}
     }
     file.close();

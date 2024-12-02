@@ -18,12 +18,12 @@ void ClapTrap::attack(const std::string& target)
 {
 	if (energy_point <= 0 || hit_points <= 0)
 	{
-		std::cout << "you cant attack beacause you have" << std::endl;
+		std::cout << "you cant attack beacause ClapTrap have" << std::endl;
 	}
 	else
 	{
 		energy_point -= 1;
-		std::cout << this->name << " attack " << target << " causing " << ClapTrap::attack_damage <<  " points of damage " << std::endl;
+		std::cout << this->name << " the ClapTrap attack " << target << " causing " << ClapTrap::attack_damage <<  " points of damage " << std::endl;
 	}
 	return ;
 }
@@ -32,12 +32,12 @@ void ClapTrap::takeDamage(unsigned int amount)
 {
 	if (hit_points - amount <= 0 || energy_point <= 0)
 	{
-		std::cout << "a Robot that is already dead cannot take damage" << std::endl;
+		std::cout << "a Robot that is already dead cannot take damage " << std::endl;
 		hit_points = 0;
 	}
 	else
 	{
-		std::cout << this->name << " take " << amount << " damage" << std::endl;
+		std::cout << this->name << " take " << amount << " damage " << std::endl;
 		hit_points -= amount;
 		if (hit_points < 0)
 			hit_points = 0;
@@ -49,13 +49,13 @@ void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (hit_points <= 0 || energy_point <= 0)
 	{
-		std::cout << "you cant be repaired beacause you have " << std::endl;
+		std::cout << " you cant be repaired you have " << std::endl;
 	}
 	else
 	{
 		energy_point -= 1;
-		std::cout << this->name << " was repaired by " << amount << " hp " << std::endl;
 		hit_points += amount;
+		std::cout << this->name << " was repaired by " << amount << " hp " << std::endl;
 	}
 	return ;
 }
