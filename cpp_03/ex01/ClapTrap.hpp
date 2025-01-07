@@ -13,7 +13,18 @@ class ClapTrap
 		std::string name;
 	public:
 		ClapTrap(std::string name);
+		ClapTrap(const ClapTrap &other);
+		ClapTrap& operator=(const ClapTrap &other);
 		~ClapTrap();
+		int getHitPoints() const {
+		    return hit_points;
+		}
+		int getEnergyPoints() const {
+		    return energy_point;
+		}
+		int getAttackDamage() const {
+		    return attack_damage;
+		}
 		void setHit_points(int nbr) {
 			hit_points = nbr;
 		}
