@@ -5,7 +5,7 @@ int	open_outfile(std::fstream& outputFile, std::string outputName)
 	outputFile.open(outputName.c_str(), std::fstream::out | std::fstream::trunc);
 	if (!outputFile)
 	{
-		std::cout << "Error opening " << outputName << "\n";
+		std::cout << "Error opening file " << outputName << "\n";
 		return (0);
 	}
 	outputFile.close();
@@ -13,7 +13,7 @@ int	open_outfile(std::fstream& outputFile, std::string outputName)
 	outputFile.open(outputName.c_str(), std::fstream::out | std::fstream::app);
 	if (!outputFile)
 	{
-		std::cout << "Error opening " << outputName << "\n";
+		std::cout << "Error opening file " << outputName << "\n";
 		return (0);
 	}
 	return (1);
@@ -63,12 +63,12 @@ int	main(int argc, char **argv)
 		inputFile.open(argv[1], std::fstream::in);
 		if (inputFile)
 		{
-			std::cout << "Error opening " << argv[1] << std::endl;
+			std::cout << "Error opening file " << argv[1] << std::endl;
 			return (0);
 		}
 		replace(inputFile, argv[1], argv[2], argv[3]);
 		inputFile.close();
 	}
 	else
-		std::cout << "Wrong number of args" << std::endl;
+		std::cout << "bad args" << std::endl;
 }

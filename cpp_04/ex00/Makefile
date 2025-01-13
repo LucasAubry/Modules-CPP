@@ -12,6 +12,11 @@ endef
 
 #-----------------------Source------------------------------
 FILES	=	main.cpp \
+			animal.cpp \
+			cat.cpp \
+			dog.cpp \
+			wrongAnimal.cpp \
+			wrongCat.cpp \
 
 #------------------------Rules------------------------------
 
