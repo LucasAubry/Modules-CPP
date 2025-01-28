@@ -1,8 +1,11 @@
 #include "sed.hpp"
 
-int	open_outfile(std::fstream& outputFile, std::string outputName)
+int	verif_openfile(std::fstream& outputFile, std::string outputName)
 {
-	outputFile.open(outputName.c_str(), std::fstream::out | std::fstream::trunc);
+	outputFile.open(outputName.c_str(), std::fstream::out | std::fstream::trunc);//combinaison de fs
+	//out = ecriture
+	//trunc = vider le fichier existant des louverture
+	//app = si le fichier exite pas le cree
 	if (!outputFile)
 	{
 		std::cout << "Error opening file " << outputName << "\n";
@@ -26,9 +29,9 @@ std::string	replace_by_s2(std::string current_line, std::string s1, std::string 
 	{
 		if (current_line[i] == s1[0] && !current_line.compare(i, len_s1, s1))
 		{
-			current_line.erase(i, len_s1);
-			current_line.insert(i, s2);
-			i += s2.length();
+			current_line.erase(i, len_s1);//supp len_s1 (nbr de char) a la position i
+			current_line.insert(i, s2);//add s2 a la position i
+			i += s2.length();//aller apres taille de s2
 		}
 	}
 	return (current_line);
@@ -42,7 +45,7 @@ void	replace(std::fstream &inputFile, std::string outputName, \
 	outputName += ".replace";
 	int	number_of_lines = 0;
 
-	if (open_outfile(outputFile, outputName) == 1)
+	if (verif_openfile(outputFile, outputName) == 1)
 	{
 		while (std::getline(inputFile, current_line, '\0'))
 		{

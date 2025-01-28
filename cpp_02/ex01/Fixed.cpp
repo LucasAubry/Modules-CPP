@@ -27,7 +27,6 @@ Fixed& Fixed::operator=(const Fixed& other)
 
 int Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
 	return (this->entier);
 }
 
@@ -46,19 +45,19 @@ Fixed::Fixed(const int c_num)
 
 Fixed::Fixed(const float f_num)
 {
-	this->entier = froundf(f_num * (1 << this->bits));// decal binaire a gauche
+	this->entier = roundf(f_num * (1 << this->bits));// decal binaire a gauche
 //le 1 permet de cree une puissance de 2 qui est necessaire pour decal le f_num
 	std::cout << "Float constructor called" << std::endl;
 }
 
-float toFloat(void) const
+float Fixed::toFloat(void) const
 {
 	return (static_cast<float>(this->getRawBits()) / (1 << bits));
 }
 
-int toInt(void) const
+int Fixed::toInt(void) const
 {
-	return ((this->entier >> bits);
+	return (this->entier >> bits);
 }
 
 std::ostream & operator<<(std::ostream & o, Fixed const & i)
