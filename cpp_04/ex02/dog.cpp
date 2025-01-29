@@ -21,9 +21,9 @@ void Dog::makeSound() const
 Dog &Dog::operator=(const Dog &other)
 {
 	std::cout << "Dog copy !" << std::endl;
-	this->type = dog.type;
+	this->type = other.type;
 	delete this->_brain;
-	this->_brain = new Brain(*dog._brain);
+	this->_brain = new Brain(*other._brain);
 	return *this;
 }
 

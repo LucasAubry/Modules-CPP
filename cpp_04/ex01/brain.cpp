@@ -14,8 +14,8 @@ Brain::Brain(const Brain &other)
 
 Brain &Brain::operator=(const Brain &other)
 {
-	std::cout << "copy Brain" << std::endl
-	this->ideas == new std::string[100];
+	std::cout << "copy Brain" << std::endl;
+	this->ideas = new std::string[100];
 	for (int i = 0; i < 100; i++)
 		this->ideas[i] = other.ideas[i];
 	return *this;
