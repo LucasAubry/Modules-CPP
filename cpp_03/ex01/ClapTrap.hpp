@@ -1,5 +1,4 @@
-#ifndef CLAPTRAP_H
-#define CLAPTRAP_H
+#pragma once
 
 #include "string"
 #include "iostream"
@@ -8,35 +7,23 @@ class ClapTrap
 {
 	protected:
 		int hit_points;
-		int energy_point;
+		int energy_points;
 		int attack_damage;
 		std::string name;
 	public:
+		ClapTrap();
 		ClapTrap(std::string name);
 		ClapTrap(const ClapTrap &other);
 		ClapTrap& operator=(const ClapTrap &other);
 		~ClapTrap();
-		int getHitPoints() const {
-		    return hit_points;
-		}
-		int getEnergyPoints() const {
-		    return energy_point;
-		}
-		int getAttackDamage() const {
-		    return attack_damage;
-		}
-		void setHit_points(int nbr) {
-			hit_points = nbr;
-		}
-		void setEnergy_point(int nbr) {
-			energy_point = nbr;
-		}
-		void setAttack_damage(int nbr) {
-			attack_damage = nbr;
-		}
-		std::string getName() const {
-			return name;
-		}
+		std::string getName() const;
+	    int getHitPoints() const;
+	    int getEnergyPoints() const;
+	    int getAttackDamage() const;
+
+		void setHit_points(int nbr);
+		void setAttack_damage(int nbr);
+		void setEnergy_points(int nbr);
 		void setName(const std::string& newName) {
 			name = newName;
 		}
@@ -45,5 +32,3 @@ class ClapTrap
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 };
-
-#endif

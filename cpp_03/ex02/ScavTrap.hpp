@@ -1,5 +1,4 @@
-#ifndef SCAVTRAP_H
-#define	SCAVTRAP_H
+#pragma once
 
 #include "ClapTrap.hpp"
 
@@ -11,5 +10,3 @@ class ScavTrap: public ClapTrap
 		void attack(const std::string& target);
 		void guardGate();
 };
-
-#endif

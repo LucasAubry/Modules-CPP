@@ -1,5 +1,4 @@
-#ifndef FLAGTRAP_H
-#define FLAGTRAP_H
+#pragma once
 
 #include "ClapTrap.hpp"
 
@@ -10,5 +9,3 @@ class FlagTrap: public ClapTrap
 		~FlagTrap();
 		void highFivesGuys(void);
 };
-
-#endif
