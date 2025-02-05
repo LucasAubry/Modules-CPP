@@ -23,7 +23,7 @@ int main(void)
 	Wall_e.stats();
 	std::cout << "\n";
 
-	Wall_e.setEnergy_point(0);
+	Wall_e.setEnergy_points(0);
 	Wall_e.beRepaired(5);
 	Wall_e.stats();
 	std::cout << "\n";

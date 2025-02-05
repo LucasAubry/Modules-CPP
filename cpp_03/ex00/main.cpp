@@ -12,21 +12,30 @@ int main(void)
 	Wall_e.setAttack_damage(1);
 	Wall_e.attack("Bad_Wall_e");
 
+	std::cout << "\n";
 	Wall_e.stats();
 	std::cout << "\n";
 	Wall_e.takeDamage(5);
+
+	std::cout << "\n";
 	Wall_e.stats();
 	std::cout << "\n";
 	Wall_e.beRepaired(5);
+
+	std::cout << "\n";
 	Wall_e.stats();
 	std::cout << "\n";
 
 	Wall_e.setEnergy_points(0);
 	Wall_e.beRepaired(5);
+
+	std::cout << "\n";
 	Wall_e.stats();
 	std::cout << "\n";
 	Wall_e.setHit_points(0);
 	Wall_e.attack("Bad_Wall_e");
+
+	std::cout << "\n";
 	Wall_e.stats();
 	std::cout << "\n";
 	return (0);

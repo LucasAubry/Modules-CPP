@@ -6,7 +6,7 @@ FlagTrap::FlagTrap(std::string name) :  ClapTrap(name)
 	std::cout << name << " the best FlagTrap just been assembled" << std::endl;
 	this->name = name;
 	this->hit_points = 100;
-	this->energy_point = 100;
+	this->energy_points = 100;
 	this->attack_damage = 30;
 }
 
