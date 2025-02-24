@@ -15,7 +15,7 @@ Dog::~Dog()
 
 void Dog::makeSound() const
 {
-	std::cout << "wouf ta mere" << std::endl;
+	std::cout << "wouf wouf le chien" << std::endl;
 }
 
 Dog &Dog::operator=(const Dog &other)
