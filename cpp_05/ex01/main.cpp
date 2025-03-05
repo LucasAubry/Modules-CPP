@@ -68,8 +68,8 @@ int main()
 		std::cout << bur_2 << std::endl;
 		Form formulaire_5("form_5", 1, 1);
 		std::cout << formulaire_5 << std::endl;
-		formulaire_5.beSigned(bur_2);
 		bur_2.signeForm(formulaire_5);
+		formulaire_5.beSigned(bur_2);
 	}
 	catch (std::exception& e)
 	{
