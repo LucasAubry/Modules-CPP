@@ -1,5 +1,5 @@
 #-----------------------Flags_and_Name---------------------
-NAME	=	dog_cat_feuille
+NAME	=	Bureaucrat
 CXX		=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 

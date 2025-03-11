@@ -13,7 +13,10 @@ endef
 #-----------------------Source------------------------------
 FILES	=	main.cpp \
 			Bureaucrat.cpp \
-			
+			AForm.cpp \
+			ShrubberyCreationForm.cpp \
+			RobotomyRequestForm.cpp \
+			PresidentialPardonForm.cpp \
 #------------------------Rules------------------------------
 
 OBJS =	${FILES:.cpp=.o}
