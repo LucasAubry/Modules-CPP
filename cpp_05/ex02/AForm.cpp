@@ -39,7 +39,7 @@ std::ostream& operator<<(std::ostream &os, AForm const& other)
 	int true_false = other.getSigned();
 	std::string result;
 	if (true_false == 0)
-		result = "not signed";
+		result = " not signed";
 	else
 		result = " signed ";
 	os << "the AForm " << other.getName() << " is " << result <<

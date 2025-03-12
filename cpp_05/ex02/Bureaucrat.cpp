@@ -6,7 +6,7 @@
 /*   By: laubry <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 14:47:10 by laubry            #+#    #+#             */
-/*   Updated: 2025/03/11 15:03:11 by laubry           ###   ########.fr       */
+/*   Updated: 2025/03/12 15:01:26 by laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,10 +107,10 @@ void Bureaucrat::executeForm(AForm const &form)
 	try
 	{
 		form.execute(*this);
-		std::cout << this->_name << "executed" << form.getName() << std::endl;
+		std::cout << this->_name << " executed " << form.getName() << std::endl;
 	}
 	catch (const std::exception &e)
 	{
-		std::cout << this->_name << "cannot execute" << form.getName() << std::endl;
+		std::cout << this->_name << " cannot execute " << form.getName() << std::endl;
 	}
 }

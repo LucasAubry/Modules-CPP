@@ -23,10 +23,10 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 
 void PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
-	if (this->getSigned() == false)
+	if (this->getSigned() == true)
 		throw GradeIsSignedException();
 	else if (executor.getGrade() > this->getGradeSigne())
 		throw GradeTooLowException();
-	
-	std::cout << this->_target << "was forgiven" << std::endl;
+	else	
+		std::cout << this->_target << "was forgiven" << std::endl;
 }
