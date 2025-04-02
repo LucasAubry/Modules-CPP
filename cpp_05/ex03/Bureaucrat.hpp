@@ -36,7 +36,8 @@ class Bureaucrat
 	std::string getName() const;
 	int getGrade() const;
 
-	void signeAForm(AForm &form) const;
+	void signeAForm(AForm &other);
+
 	void executeForm(AForm const &form);
 };
 std::ostream& operator<<(std::ostream &os, Bureaucrat const& other);

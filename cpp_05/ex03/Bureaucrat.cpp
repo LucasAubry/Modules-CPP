@@ -6,7 +6,7 @@
 /*   By: laubry <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 14:47:10 by laubry            #+#    #+#             */
-/*   Updated: 2025/04/02 16:13:32 by laubry           ###   ########.fr       */
+/*   Updated: 2025/03/19 17:55:03 by laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,17 +84,28 @@ std::ostream& operator<<(std::ostream &os, Bureaucrat const& other)
 	return os;
 }
 
-void Bureaucrat::signeAForm(AForm &form) const
+
+void Bureaucrat::signeAForm(AForm &other)
 {
+	std::string reason;
+
+	if (this->_grade > 1)
+		reason = "grade to low";
+	else
+		reason = "grade to hight";
+
 	try
 	{
-		form.beSigned(*this);
-		std::cout << this->_name << " signed " << form.getName() << std::endl;
+		if (other.getSigned() == false)
+		{
+			std::cout << this->_name << " signed " << other.getName() << std::endl;
+		}
+		other.beSigned(*this);
 	}
 	catch (std::exception &e)
 	{
-		std::cout << this->_name << " couldn't sign " << form.getName() << " because " <<
-			e.what() << std::endl;
+		std::cout << this->_name << " couldn't sign " << other.getName() << " because " <<
+			reason << std::endl;
 	}
 }
 
@@ -107,7 +118,6 @@ void Bureaucrat::executeForm(AForm const &form)
 	}
 	catch (const std::exception &e)
 	{
-		std::cout << this->_name << " cannot execute " << form.getName() << " because " <<
-			e.what() << std::endl;
+		std::cout << this->_name << " cannot execute " << form.getName() << std::endl;
 	}
 }
