@@ -18,9 +18,9 @@ int main()
 		AForm *rrf = someRandomIntern.makeForm("Robotomy Request", "Bender ");
 		AForm *ppf = someRandomIntern.makeForm("Presidential Pardon", "Bender ");
 		AForm *scf = someRandomIntern.makeForm("Shrubbery Creation", "Bender ");
-	//	AForm *notform = someRandomIntern.makeForm("notform", "Bender");
+		someRandomIntern.makeForm("notform", "Bender");
 
-		std::cout << "ok \n" << std::endl;
+		std::cout << "\nok :" << std::endl;
 
 		louis.signeAForm(*rrf);
 		louis.signeAForm(*ppf);
@@ -30,7 +30,7 @@ int main()
 		louis.executeForm(*ppf);
 		louis.executeForm(*scf);
 
-		std::cout << "ko : \n" << std::endl;
+		std::cout << "\nko :" << std::endl;
 
 		louisette.signeAForm(*rrf);
 		louisette.signeAForm(*ppf);
@@ -40,16 +40,11 @@ int main()
 		louisette.executeForm(*ppf);
 		louisette.executeForm(*scf);
 
-//		std::cout << "ko no form : \n" << std::endl;
-
-	//	louis.signeAForm(*notform);
-	//	louis.executeForm(*notform);
 
 		std::cout << "\n" << std::endl;
 		delete rrf;
 		delete ppf;
 		delete scf;
-	//	delete notform;
 	}
 	catch(std::exception& e)
 	{

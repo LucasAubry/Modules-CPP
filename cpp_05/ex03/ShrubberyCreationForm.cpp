@@ -30,7 +30,7 @@ void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 	std::ofstream File_shru(std::string(this->_target + "_shrubbery").c_str());
 	if (!File_shru)
 	{
-		std::cout << "Error cant open file" << std::endl;
+		std::cout << "Error cant open the file" << std::endl;
 		return;
 	}
 	File_shru << "	           /\\				" << '\n';	

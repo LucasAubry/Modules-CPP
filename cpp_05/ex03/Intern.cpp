@@ -51,6 +51,6 @@ AForm *Intern::makeForm(std::string FormName, std::string target)
 		if (FormName == tab[i])
 			return (functab[i](target));
 	}
-	std::cout << "cant create Form" << std::endl;
+	std::cout << "cant create a form because the form does not exist" << std::endl;
 	return (NULL);
 }
