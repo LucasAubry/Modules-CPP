@@ -1,20 +1,18 @@
 #include "inter.hpp"
 
-int *add_one(int *tab)
+void add_one(int &i)
 {
-	for (int i = 0; tab[i]; i++)
-	{
-		tab[i] = tab[i] + 1;
-	}
+	i += 1;
+}
+
+void print_tab(int i)
+{
+	std::cout << i << std::endl;
 }
 
 int main(void)
 {
 	int tab[] = {1, 2, 3, 4, 5};
-	int new_tab[];
-	new_tab = inter(tab[], 6, add_one());
-	for (int i = 0; new_tab[i], i++)
-	{
-		std::cout << new_tab[i] << std::endl;
-	}
+	iter(tab, 5, add_one);
+	iter(tab, 5, print_tab);
 }
