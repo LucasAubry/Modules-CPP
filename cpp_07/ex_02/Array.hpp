@@ -3,23 +3,49 @@
 #include <iostream>
 #include <cassert>
 
+
 template <class T>
 class Array
 {
 	private :
 		T *_tab;
 		unsigned int _size;
+
 	public :
-		Array() { _tab = new T[0]; _size = 0 ;};
-		Array(unsigned int n) { _tab = new T[n]; _size = n; };
-		Array(const Array & other) {*this = other; std::cout << "copy" << std::endl;};
+		Array() : _tab(new T[0]), _size(0) {};
+		Array(unsigned int n) : _size(n)
+		{
+			this->_tab = new T[this->_size];
+			for (unsigned int i = 0; i < this->_size; i++)
+			{
+				this->_tab[i] = T();
+			}
+		}
+		Array(const Array & other)
+		{
+			this->_size = other._size;
+			this->_tab = new T[other._size];
+			for (unsigned int i = 0; i < other._size; i++)
+			{
+				this->_tab[i] = other._tab[i];
+			}
+		};
 		Array &operator=(const Array& other)
 		{
-			this->_tab = other._tab;
-			this->_size = other._size;
+			if (this != &other)
+			{
+				delete[] this->_tab;
+				this->_size = other._size;
+				this->_tab = new T[other._size];
+
+				for (unsigned int i = 0; i < other._size; i++)
+				{
+					this->_tab[i] = other._tab[i];
+				}
+			}
 			return *this;
 		}
-		~Array() { delete[] _tab; };
+		~Array() { std::cout << "~"<<  *this << std::endl; delete[] _tab; };
 
 		unsigned int size() { return _size; };
 

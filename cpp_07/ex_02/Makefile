@@ -1,7 +1,7 @@
 #-----------------------Flags_and_Name---------------------
 NAME	=	Array
 CXX		=	c++
-CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
+CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98 -g
 
 #------------------------Colors-----------------------------
 
