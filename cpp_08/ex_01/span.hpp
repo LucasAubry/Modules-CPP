@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <iostream>
 
 class Span
 {
@@ -12,10 +13,7 @@ class Span
 		Span(unsigned int N);
 		~Span();
 
-		void set_tab(unsigned int N)
-		{
-			this->_tab.resize(N);
-		}
-
-		void addNumber(int num);	
-}
+		void addNumber(int num);
+		int shortestSpan();
+		int longestSpan();
+};
