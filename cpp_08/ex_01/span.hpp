@@ -2,6 +2,9 @@
 
 #include <vector>
 #include <iostream>
+#include <vector>
+#include <algorithm> //min element et max eleement 
+#include <stdexcept> //runtime error
 
 class Span
 {

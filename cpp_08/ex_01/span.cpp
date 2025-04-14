@@ -15,39 +15,27 @@ void Span::addNumber(int num)
 
 int Span::shortestSpan()
 {
-	int dis = 0;
-	
+	std::vector<int> sorted = _tab;
+
 	if (_tab.size() == 0 || _tab.size() == 1)
-		throw std::runtime_error("shortestSpan : error no number in tab");
-	for (size_t i = 0; i < this->_tab.size(); i++)
+		throw std::runtime_error("longestSpan : error no number in tab");
+
+	std::sort(sorted.begin(), sorted.end());
+	int min = std::abs(sorted[1] - sorted[0]); //pour pas metre 0 sinon ca va rester a 0
+	for (size_t i = 1; i < sorted.size(); i++)
 	{
-		if (_tab[i] > _tab[i+1])
-		{
-			if (dis > this->_tab[i] - this->_tab[i+1])
-				dis = this->_tab[i] - this->_tab[i+1];
-		}
-		else if (dis > this->_tab[i+1] - this->_tab[i])
-			dis = this->_tab[i+1] - this->_tab[i];
+		int span = std::abs(sorted[i] - sorted[i -1]);//abs cest absolut donc -5 fait 5
+		if (span < min)
+			min = span;
 	}
-	return (dis);
+	return (min);
 }
 
 int Span::longestSpan()
 {
-	int dis = 0;
-
 	if (_tab.size() == 0 || _tab.size() == 1)
-		throw std::runtime_error("longestSpan : error no number in tab");
-	for (size_t i = 0; i < this->_tab.size(); i++)
-	{
-		if (_tab[i] > _tab[i+1])
-		{	
-			if (dis < this->_tab[i] - this->_tab[i+1])
-				dis = this->_tab[i] - this->_tab[i+1];
-		}
-		else if (dis < this->_tab[i+1] - this->_tab[i])
-			dis = this->_tab[i+1] - this->_tab[i];
-	}
-	return (dis);
+		throw std::runtime_error("shortestSpan : error no number in tab");
+	int num = *std::max_element(_tab.begin(), _tab.end()) - *std::min_element(_tab.begin(), _tab.end());
+	return (num);
 }
 
