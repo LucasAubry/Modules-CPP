@@ -39,3 +39,15 @@ int Span::longestSpan()
 	return (num);
 }
 
+void Span::addBoosted(int num, ...)
+{
+	va_list args;
+	if (this->_tab.size() >= this->_N)
+		throw std::runtime_error("addBoosted : error tab is full");
+	va_start(args, num);
+	for (int i = 0; i < num; i++)
+	{
+		this->addNumber(va_arg(args, int));
+	}
+	va_end(args);
+}
