@@ -2,45 +2,8 @@
 
 int main()
 {
-//ok
-	try
-	{
-		Span sp = Span(11);
-		sp.addBoosted(11, 2, 34, 42, 19, 6, 20, 101, 19, 1, 3);//le permier nombre cest le nombre dargument
-	}
-	catch(std::runtime_error &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
 
-//ko
-	try
-	{
-		Span sp = Span(11);
-		sp.addBoosted(11, 2, 34, 42, 19, 6, 20, 1, 3, 21, 3);
-	}
-	catch(std::runtime_error &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-
-
-//ko
-	try
-	{
-		Span sp = (1);//BON CA CA MARCHE MAL OK 
-		sp.addBoosted(3, 2, 3); //QUAND TU CHANGE LE PREMIRR NOMBR CA BUG
-
-		std::cout << sp.shortestSpan() << std::endl;
-		std::cout << sp.longestSpan() << std::endl;
-	}
-	catch (std::runtime_error &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-
-
-
+	std::cout << "\nsujet--------: " << std::endl;
 //ok
 	try
 	{
@@ -58,4 +21,48 @@ int main()
 	{
 		std::cout << e.what() << std::endl;
 	}
+
+
+	std::cout << "\naddBoosted-------: " << std::endl;
+//ko
+	try
+	{
+		Span sp2 = Span(10);
+		sp2.addBoosted(11, 2, 34, 42, 19, 6, 20, 101, 19, 1, 3, 2);//le 1er nombre cest forcement la size
+	}
+	catch(std::runtime_error &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+//ko
+	try
+	{
+		Span sp3 = Span(1);
+		sp3.addBoosted(1, 2);
+
+		std::cout << sp3.shortestSpan() << std::endl;
+		std::cout << sp3.longestSpan() << std::endl;
+	}
+	catch(std::runtime_error &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+
+//ko
+  try
+  {
+  	Span sp4 = Span(10);
+  	sp4.addBoosted(10, 1, 5, 7, 9, 10, 39, 59, 78, 43, 2);
+
+  	std::cout << sp4.shortestSpan() << std::endl;
+  	std::cout << sp4.longestSpan() << std::endl;
+  }
+  catch (std::runtime_error &e)
+  {
+  	std::cout << e.what() << std::endl;
+  }
+
+
 }
