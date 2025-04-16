@@ -16,4 +16,5 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter& other)
 void ScalarConverter::convert(std::string string)
 {
 	std::cout << string << std::endl;
+	
 }
