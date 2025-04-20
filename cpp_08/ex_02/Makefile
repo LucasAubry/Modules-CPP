@@ -1,5 +1,5 @@
 #-----------------------Flags_and_Name---------------------
-NAME	=	BTC
+NAME	=	Abomination
 CXX		=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98 -g
 
@@ -12,7 +12,6 @@ endef
 
 #-----------------------Source------------------------------
 FILES	=	main.cpp \
-			BitcoinExchange.cpp \
 
 #------------------------Rules------------------------------
 

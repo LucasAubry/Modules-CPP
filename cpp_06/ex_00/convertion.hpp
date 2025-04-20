@@ -13,6 +13,6 @@ class ScalarConverter
 	public:
 		~ScalarConverter();
 
-		static void convert(const std::string string);
+		static void convert(const std::string &literal);
 
 };
