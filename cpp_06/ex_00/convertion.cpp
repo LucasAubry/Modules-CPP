@@ -12,87 +12,56 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter& other)
 	return *this;
 }
 
-
-
-
-
-
-static bool isChar(const std::string& str)
+static bool isChar(const std::string &literal)
 {
-	return str.length() == 1 && std::isprint(str[0]) && !std::isdigit(str[0]);
-	//verifi si ya un seul caractere, si cest un caractere affichable, si cest pas un nombre
+	return literal.lenght() == 1 && std::isprint(literal[0]) && !std::isdigit(literal[0]);
 }
 
-static bool isInt(const std::string& str)
+static bool isInt(const std::string &literal)
 {
 	char *end;
-	std::strtol(str.c_str(), &end, 10);
-	return (*end == '\0');
+	long val = std::strtol(literal.c_str(), &end, 10);
+	return (*end == '\0' && val >= INT_MIN && val <= INT_MAX);
 }
 
-static bool isFloat(const std::string& str)
+static bool isFloat(const std::string &literal)
 {
-	return (str.find('f') != std::string::npos && str.back() == 'f';
-	//verifi si ya un f a la fin psk les float ca fini tjr en f (42.0f);
+	if (literal == "+inff" || literal == "-inff" || literal == "nanf")
+		return (true);
+	char *end;
+	errno = 0;
+	float val == std::strtof(literal.c_str(), &end();
+
+	if (errno != 0 || end == literal.c_str() || *end != 'f')
+		return (false);
+	return (true);
 }
 
-static bool isDouble(const std::string& str)
+static bool isDouble(const std::string &literal)
 {
-	return (str.find('.') != std::string::npos && str.back() != 'f';
-	//pareil mais si la fin il ny a pas de f cest donc un double (42.0);
+	if (literal == "+inf" || literal == "-inf" || literal == "nan")
+		return (true);
+
+	char *end;
+	errno = 0
+	double = val = std::strtod(literal.c_str(), &end);
+
+	if (errno != 0 || end == literal.c_str() || *end != '\0')
+		return (false);
+	return (true);
 }
 
-void ScalarConverter::convert(const std::string& literal)
+
+
+void ScalarConverter::convert(const std::string &literal)
 {
-	std::cout << std::fixed << std::setprecision(1);
+	double value;
+
 	if (isChar(literal))
-	{
-		char c = literal[0];
-		std::cout << "char: " << c << std::endl;
-		std::cout << "int: " << static_cast<int>(c) << std::endl;
-		std::cout << "float: " << static_cast<float>(c) << "f" << std::endl;
-		std::cout << "double: " << static_cast<double>(c) << std::endl;
-	}
+		value = static_cast<double>(literal[0]);
 	else if (isInt(literal))
-	{
-		int i = std::atoi(literal.c_str());
-		char c = static_cast<char>(i);
-
-		if (i >= 32 && i < 126)
-			std::cout << "char: " << c << std::endl;
-		else if (i >= 0 && i <= 255)
-			std::cout << "char: is not printable" << std::endl;
-		else
-			std::cout << "char: impossible" << std::endl;
-
-		std::cout << "int: " << i << std::endl;
-		std::cout "float: " << static_cast<float>(i) << "f" << std::endl;
-		std::cout "double: " << static_cast<double(i) << std::endl;
-	}
-	else if (literal == "nanf" || literal == "-inff" || literal == "+inff")
-	{
-		float f = std::strtof(literal.c_str(), NULL);
-		std::cout << "char: impossible" << std::endl;
-		std::cout << "int: impossible" << std::endl;
-		std::cout << "float: " << literal << std::endl;
-		std::cout << "double: " << static_cast<double>(f) << std::endl;
-	}
-	else if (literal == "nan" || literal == "-inf" || literal == "+inf")
-	{
-		double d = std::strtod(literal.c_str(), NULL);
-	}
+		value = static_cast<double>(literal);	
 	else if (isFloat(literal))
-	{
-		float f = std::strtof(literal.c_str(), NULL);
-	}
-	else if (isDouble(literal))
-	{
-		double d = std::strtod(literal.c_str(), NULL);
-	}
-	else
-	{
-		std::cout << "error : invalise literal" << std::endl;
-	}
+		value = static_cast<double>(literal);
+
 }
-
-
