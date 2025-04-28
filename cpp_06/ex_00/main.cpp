@@ -2,12 +2,14 @@
 
 int main(int argc, char **argv)
 {
-	if (argc < 2 || argc >= 3)
+	if (argc != 2)
 	{
-		std::cout << "error argument" << std::endl;
+		std::cerr << "usage: ./convert <literal>" << std::endl;
+		return (0);
 	}
 	else
 	{
 		ScalarConverter::convert(argv[1]);
+		return (0);
 	}
 }
