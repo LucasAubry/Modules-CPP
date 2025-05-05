@@ -74,49 +74,57 @@ void print_char(double value)
 void print_int(double value)
 {
 	if (isnan(value) || value > INT_MAX || value < INT_MIN)
-		std::cout << "error int impossible" << std::endl;
+		std::cout << "error Overflow" << std::endl;
 	else
 		std::cout << "Type Int: " << static_cast<int>(value) << std::endl;
 }
 void print_float(double value)
 {	
-	std::cout << std::fixed << std::setprecision(1);
+	std::cout << std::fixed << std::setprecision(5);
 	std::cout << "Type Float: " << static_cast<float>(value) << "f" << std::endl;
 }
 void print_double(double value)
 {
 //fixed == notation decimale(pas sientifique 112e3) 112,3333
 //setprecision(1) un chiffre apres la virgules
-	std::cout << std::fixed << std::setprecision(1);
+	std::cout << std::fixed << std::setprecision(5);
 	std::cout << "Type Double: " << value << std::endl;
 }
 
 
+void print_type(double value)
+{
+	print_char(value);
+	print_int(value);
+	print_float(value);
+	print_double(value);
+}
+
 void ScalarConverter::convert(const std::string &literal)
 {
-	double value;//on convertie tout en double psk il peut contenir tout sans perte
+	double value;//on convertie tout en double
 
 	if (isChar(literal))
 	{
 		value = static_cast<double>(literal[0]);
-		print_char(value);
+		print_type(value);
 	}
 	else if (isInt(literal))
 	{
 		int val = std::atoi(literal.c_str());
 		value = static_cast<double>(val);
-		print_int(value);
+		print_type(value);
 	}
 	else if (isFloat(literal))
 	{
 		float val = std::strtof(literal.c_str(), NULL);
 		value = static_cast<double>(val);
-		print_float(value);
+		print_type(value);
 	}
 	else if (isDouble(literal))
 	{
 		value = std::strtod(literal.c_str(), NULL);
-		print_double(value);
+		print_type(value);
 	}
 	else
 	{
@@ -127,3 +135,4 @@ void ScalarConverter::convert(const std::string &literal)
 		return ;
 	}
 }
+

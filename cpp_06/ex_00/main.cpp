@@ -13,3 +13,10 @@ int main(int argc, char **argv)
 		return (0);
 	}
 }
+
+/*type de cats
+	static (compilatiom cast de base, int en float)
+	dynamiquc (execution, caste 2 objets)
+	reinterpret (compilation bas niveau donc aucun controle int en pointeur par exemple)
+	const (peut ajouter/enlever const ou volatile a une variable)
+*/
