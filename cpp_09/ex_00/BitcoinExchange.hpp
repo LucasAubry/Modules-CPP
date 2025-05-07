@@ -16,9 +16,9 @@ class BitcoinExchange
 		//_data, une faleur en float;
 		std::map<std::string, float> _data;	
 	public:
-		BitcoinExchange::BitcoinExchange();
-		BitcoinExchange::~BitcoinExchange();
-		BitcoinExchange::BitcoinExchange(const BitcoinExchange& other);
-		BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& other);
-		void exchange();
+		BitcoinExchange();
+		~BitcoinExchange();
+		BitcoinExchange(const BitcoinExchange& other);
+		BitcoinExchange& operator=(const BitcoinExchange& other);
+		static void Exchange(std::ifstream &dataBase);
 };

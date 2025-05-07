@@ -1,5 +1,8 @@
-int main(int ac, char **av)
+#include "BitcoinExchange.hpp"
+
+int main(int ac, char** av)
 {
+	(void) av;
 	if (ac == 2)
 	{
 		std::ifstream dataBase("data.csv");
@@ -14,7 +17,7 @@ int main(int ac, char **av)
 		std::cout << "file cant be open" << std::endl;
 			return (1);
 		}
-		Exchange()
+		BitcoinExchange::Exchange(dataBase);
 	}
 	else
 	{

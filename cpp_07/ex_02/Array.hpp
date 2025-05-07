@@ -45,7 +45,7 @@ class Array
 			}
 			return *this;
 		}
-		~Array() { std::cout << "~"<<  *this << std::endl; delete[] _tab; };
+		~Array() {/* std::cout << "~"<<  *this << std::endl; */ delete[] _tab;};
 
 		unsigned int size() { return _size; };
 
