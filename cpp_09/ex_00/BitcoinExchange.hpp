@@ -8,6 +8,12 @@
 #include <iostream>
 #include <climits>
 
+#include <string>
+#include <sstream>
+#include <iomanip>
+#include <iostream>
+
+
 class BitcoinExchange
 {
 	private:

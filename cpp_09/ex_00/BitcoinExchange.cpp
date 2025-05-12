@@ -16,6 +16,6 @@ void BitcoinExchange::Exchange(std::ifstream& dataBase)
 	while (std::getline(dataBase, str))
 	{
 		
-		std::cout << str << std::endl;
+//		std::cout << str << std::endl;
 	}
 }
