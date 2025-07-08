@@ -17,14 +17,17 @@
 class BitcoinExchange
 {
 	private:
-		//std::map trie les clef par oordre alphanumerique 
-		//std::string = les dates;
-		//_data, une faleur en float;
-		std::map<std::string, float> _data;	
+		std::map<std::string, double> _data;
 	public:
 		BitcoinExchange();
 		~BitcoinExchange();
 		BitcoinExchange(const BitcoinExchange& other);
 		BitcoinExchange& operator=(const BitcoinExchange& other);
-		static void Exchange(std::ifstream &dataBase);
+		double find_value(std::string date, double value);
+		void put_data_to_map();
+		void parseInput(std::ifstream &file);
 };
+
+void bitExchange(std::string const &name);
+
+
