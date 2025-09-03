@@ -1,5 +1,5 @@
 #-----------------------Flags_and_Name---------------------
-NAME	=	RPN
+NAME	=	PmergeMe
 CXX		=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98 -g
 
@@ -12,7 +12,7 @@ endef
 
 #-----------------------Source------------------------------
 FILES	=	main.cpp \
-			RPN.cpp \
+			PmergeMe.cpp \
 
 #------------------------Rules------------------------------
 
