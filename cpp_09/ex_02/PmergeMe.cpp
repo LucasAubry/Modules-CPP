@@ -52,4 +52,3 @@ void PmergeMe::run(int argc, char **argv)
     std::cout << "Time to process a range of " << vec.size() << " elements with std::vector : " << time_vec << " us" << std::endl;
     std::cout << "Time to process a range of " << deq.size() << " elements with std::deque  : " << time_deq << " us" << std::endl;
 }
-

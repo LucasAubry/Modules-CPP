@@ -11,45 +11,51 @@ Rpn& Rpn::operator=(const Rpn& other)
 }
 
 
-
 void Rpn::calcule(const std::string &token)
 {
-	int value = 0;
-	if (token == "+" || token == "-" || token == "*" || token == "-" || token == "/")
-	{
-		int b = this->stack.back(); stack.pop_back();
-		int a = this->stack.back(); stack.pop_back();
-		
-		if (token == "+")
-		{
-			//std::cout << "+: " << a << " " << b << " " << value << std::endl;
-			value = a + b;
-			//std::cout << "+: " << a << " " << b << " " << value << std::endl;
-		}
-		else if (token == "-")
-			value = a - b;
-		else if (token == "*")
-			value = a * b;
-		else if (token == "/")
-		{
-			if (b == 0)
-				throw std::runtime_error("Error: /0 ");
-			value = a / b;
-		}
-	}
-	else
-	{
-		if (token.length() != 1 || !isdigit(token[0]))
-			throw std::runtime_error("Error: not a digit token");
-		value = token[0] - '0';
-	}
-	this->stack.push_back(value);
+    int value = 0;
+
+    if (token == "+" || token == "-" || token == "*" || token == "/")
+    {
+        if (this->stack.size() < 2)
+            throw std::runtime_error("error operator");
+
+        int b = this->stack.back();
+		this->stack.pop_back();
+
+        int a = this->stack.back();
+		this->stack.pop_back();
+
+        if (token == "+")
+            value = a + b;
+        else if (token == "-")
+            value = a - b;
+        else if (token == "*")
+            value = a * b;
+        else if (token == "/")
+        {
+            if (b == 0)
+                throw std::runtime_error("error division by zero");
+            value = a / b;
+        }
+    }
+    else
+    {
+        if (token.length() != 1 || !isdigit(token[0]))
+            throw std::runtime_error("error not a digit token");
+        value = token[0] - '0';
+    }
+
+    this->stack.push_back(value);
 }
 
 void Rpn::printToken()
 {
-	std::cout << this->stack.back() << std::endl;
+    if (this->stack.size() != 1)
+        throw std::runtime_error("error invalid expression too many numbers");
+    std::cout << this->stack.back() << std::endl;
 }
+
 
 void Rpn::addRest()
 {
